@@ -22,9 +22,16 @@
 
             </div>
             <div class="card-body">
-              <h5 class="card-title"><strong>Project n°:</strong> {{ $project->id }}</h5>
-              <p class="card-text"><strong>Project description:</strong> {{ $project->description }}</p>
-              <a href="{{route('admin.project.show', $project)}}" class="btn btn-primary">More info</a>
+                <h5 class="card-title"><strong>Project n°:</strong> {{ $project->id }}</h5>
+                @if ($project->technologies)
+                    <h5 class="card-title">
+                        <strong>Project technology:</strong> {{ $project->technologies->name }}
+                    </h5>
+                @else
+                    <p>Nessuna tecnologia utilizzata</p>
+                @endif
+                <p class="card-text"><strong>Project description:</strong> {{ $project->description }}</p>
+                <a href="{{route('admin.project.show', $project)}}" class="btn btn-primary">More info</a>
             </div>
             <div class="card-footer text-muted">
                 <strong><a href="{{ $project->website_url }}">See more on GitHub</a></strong>
