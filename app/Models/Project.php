@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Technology;
 
 class Project extends Model
 {
-    /* protected $fillable = [
-        'title',
-        'start_date',
-        'description',
-    ]; */
+
     protected $guarded = ['id'];
+    public function technology(){
+        return $this->belongsTo(Technology::class);
+    }
+
 }

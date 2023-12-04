@@ -23,9 +23,9 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title"><strong>Project n°:</strong> {{ $project->id }}</h5>
-                @if ($project->technologies)
+                @if ($project->technology)
                     <h5 class="card-title">
-                        <strong>Project technology:</strong> {{ $project->technologies->name }}
+                        <strong>Project technology:</strong> {{ $project->technology->id }}
                     </h5>
                 @else
                     <p>Nessuna tecnologia utilizzata</p>

@@ -10,7 +10,10 @@ return new class extends Migration
     {
         Schema::table('projects', function(Blueprint $table){
             $table->unsignedBigInteger('technology_id')->after('id')->nullable();
-            $table->foreign('technology_id')->references('id')->on('technologies')->onDelete('set null');
+            $table->foreign('technology_id')
+                ->references('id')
+                ->on('technologies')
+                ->onDelete('set null');
 
         });
     }
@@ -20,8 +23,6 @@ return new class extends Migration
         Schema::table('projects', function(Blueprint $table){
             $table->dropForeign(['technology_id']);
             $table->dropColumn(['technology_id']);
-
-
         });
     }
 };
